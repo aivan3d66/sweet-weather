@@ -1,6 +1,9 @@
 {
   "name": "sweet-weather",
   "homepage": "https://aivan3d66.github.io/sweet-weather",
+  "description": "React weather app",
+  "author": "aivan3d66",
+  "license": "ISC",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
