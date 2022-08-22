@@ -12,6 +12,7 @@ import {
   fetchWeatherError,
   fetchWeatherSuccess,
 } from './weatherActions';
+import { updateLocalStorage } from './localStorageActions';
 
 export type LocationActionCreatorTypes =
   | ReturnType<typeof fetchLocation>
@@ -26,3 +27,7 @@ export type FetchActionCreatorTypes =
   | ReturnType<typeof fetchWeatherSuccess>
   | ReturnType<typeof fetchWeatherError>
   | ReturnType<typeof changeWeatherApi>;
+
+export type LocalStorageActionCreatorType = ReturnType<
+  typeof updateLocalStorage
+>;
