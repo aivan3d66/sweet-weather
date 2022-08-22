@@ -5,30 +5,39 @@ import {
   UPDATE_COORDINATES,
   UPDATE_COUNTRY_CODE,
   UPDATE_LOCATION,
-} from '../constants/actions'
+} from 'constant/actions';
+import { CoordinatesType } from 'types';
 
-import { CoordinatesType } from './types'
+export const fetchLocation = () =>
+  ({
+    type: FETCH_LOCATION,
+  } as const);
 
-export const fetchLocation = () => ({
-  type: FETCH_LOCATION,
-})
-export const fetchLocationSuccess = (location: string) => ({
-  type: FETCH_LOCATION_SUCCESS,
-  payload: { location },
-})
-export const fetchLocationError = (errorMessage: string) => ({
-  type: FETCH_LOCATION_ERROR,
-  payload: { errorMessage },
-})
-export const updateLocationName = (cityName: string) => ({
-  type: UPDATE_LOCATION,
-  payload: { cityName },
-})
-export const updateCountyCode = (countryCode: string) => ({
-  type: UPDATE_COUNTRY_CODE,
-  payload: { countryCode },
-})
-export const updateCoordinates = (coordinates: CoordinatesType) => ({
-  type: UPDATE_COORDINATES,
-  payload: { coordinates },
-})
+export const fetchLocationSuccess = (location: string) =>
+  ({
+    type: FETCH_LOCATION_SUCCESS,
+    payload: location,
+  } as const);
+
+export const fetchLocationError = (errorMessage: string) =>
+  ({
+    type: FETCH_LOCATION_ERROR,
+    payload: errorMessage,
+  } as const);
+
+export const updateLocationName = (cityName: string) =>
+  ({
+    type: UPDATE_LOCATION,
+    payload: cityName,
+  } as const);
+export const updateCountyCode = (countryCode: string) =>
+  ({
+    type: UPDATE_COUNTRY_CODE,
+    payload: countryCode,
+  } as const);
+
+export const updateCoordinates = (coordinates: CoordinatesType) =>
+  ({
+    type: UPDATE_COORDINATES,
+    payload: coordinates,
+  } as const);
