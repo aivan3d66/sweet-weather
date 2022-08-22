@@ -1,64 +1,18 @@
 {
   "env": {
     "browser": true,
-    "es2021": true,
     "jest": true
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": [
-    "react",
-    "react-hooks",
-    "@typescript-eslint",
-    "prettier",
-    "import"
-  ],
+  "extends": ["airbnb", "airbnb-typescript", "plugin:prettier/recommended"],
+  "parserOptions": { "project": "./tsconfig.json" },
   "rules": {
-    "react/react-in-jsx-scope": "off",
-    "camelcase": "error",
-    "spaced-comment": "error",
-    "quotes": [
-      "error",
-      "single"
+    "import/prefer-default-export": "off",
+    "react/function-component-definition": [
+      2,
+      { "namedComponents": "arrow-function" }
     ],
-    "import/order": [
-      "error",
-      {
-        "pathGroups": [
-          {
-            "pattern": "@/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "./**",
-            "group": "internal",
-            "position": "after"
-          }
-        ],
-        "newlines-between": "always",
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ]
-      }
-    ],
-    "no-duplicate-imports": "error"
-  },
-  "settings": {
-    "import/resolver": {
-      "typescript": {}
-    }
+    "no-unused-expressions": "off",
+    "default-param-last": "off",
+    "operator-linebreak": "off"
   }
 }
