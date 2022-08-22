@@ -20,7 +20,7 @@ import { getBackgroundUrlAndColor } from 'utils';
 import { localeStorageItems } from 'constant';
 
 import GlobalStyle from 'globalStyle';
-import { StyledApp } from 'style';
+import { StyledApp } from 'app/styled';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
