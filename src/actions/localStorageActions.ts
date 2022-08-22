@@ -1,6 +1,7 @@
-import { UPDATE_LOCAL_STORAGE } from '../constants/actions'
+import { UPDATE_LOCAL_STORAGE } from 'constant/actions';
 
-export const updateLocaleStorage = (item: string, data: string) => ({
-  type: UPDATE_LOCAL_STORAGE,
-  payload: { item, data },
-})
+export const updateLocalStorage = (item: string, data: string) =>
+  ({
+    type: UPDATE_LOCAL_STORAGE,
+    payload: { item, data },
+  } as const);
