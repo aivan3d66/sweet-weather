@@ -20,8 +20,6 @@ export default createGlobalStyle`
   }
 
   body {
-    background: linear-gradient(45deg, ${theme.colors.lightOrange}, ${theme.colors.extraLightBlue}) no-repeat center 100%;;
-
     & > #root {
       width: 100%;
       height: 100%;

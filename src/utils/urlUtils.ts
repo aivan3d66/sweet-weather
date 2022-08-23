@@ -39,18 +39,46 @@ export const getUrlIcon = (nameApi: string, weatherIcon: string) => {
 export const getBackgroundUrlAndColor = (weatherCode: number) => {
   switch (true) {
     case weatherCode < weatherCodes.drizzle:
-      return { backgroundUrl: thunderstorm, color: theme.colors.grey };
+      return {
+        backgroundUrl: thunderstorm,
+        color: theme.colors.grey,
+        bgColor: theme.colors.grey,
+      };
     case weatherCode < weatherCodes.rain:
-      return { backgroundUrl: drizzle, color: theme.colors.lightGrey };
+      return {
+        backgroundUrl: drizzle,
+        color: theme.colors.transparentBlue,
+        bgColor: theme.colors.transparentBlue,
+      };
     case weatherCode < weatherCodes.snow:
-      return { backgroundUrl: rain, color: theme.colors.lightGrey };
+      return {
+        backgroundUrl: rain,
+        color: theme.colors.lightGrey,
+        bgColor: theme.colors.darkGrey,
+      };
     case weatherCode < weatherCodes.atmosphere:
-      return { backgroundUrl: snow, color: theme.colors.lightBlack };
+      return {
+        backgroundUrl: snow,
+        color: theme.colors.lightBlack,
+        bgColor: theme.colors.lightBlack,
+      };
     case weatherCode < weatherCodes.clear:
-      return { backgroundUrl: atmosphere, color: theme.colors.darkGrey };
+      return {
+        backgroundUrl: atmosphere,
+        color: theme.colors.darkGrey,
+        bgColor: theme.colors.darkGrey,
+      };
     case weatherCode === weatherCodes.clear:
-      return { backgroundUrl: clear, color: theme.colors.lightPink };
+      return {
+        backgroundUrl: clear,
+        color: theme.colors.lightPink,
+        bgColor: theme.colors.lightBlue,
+      };
     default:
-      return { backgroundUrl: clouds, color: theme.colors.orange };
+      return {
+        backgroundUrl: clouds,
+        color: theme.colors.orange,
+        bgColor: theme.colors.darkBlue,
+      };
   }
 };

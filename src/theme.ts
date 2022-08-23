@@ -16,12 +16,14 @@ const lightPink = '#ff9900';
 const black = '#000000';
 const lightBlack = '#222222';
 const grey = '#9b9b9b';
-const lightGrey = '#E6E6FFFF';
+const lightGrey = '#bababa';
 const darkGrey = '#555555';
 const lightOrange = '#EECFBA';
-const extraLightBlue = '#C5DDE8';
+const darkBlue = '#202080FF';
 const transparentBlue = '#0020609F';
 const lightBlue = '#3939ac';
+
+const extraLightBlue = '#C5DDE8';
 const white = '#ffffff';
 
 const boxShadows = ['box-shadow: 0px 4px 24px -8px rgba(0,0,0,0.75)'];
@@ -114,6 +116,7 @@ export default {
     darkGrey,
     extraLightBlue,
     white,
+    darkBlue,
     lightBlue,
     transparentBlue,
   },

@@ -20,7 +20,7 @@ import { getBackgroundUrlAndColor } from 'utils';
 import { localeStorageItems } from 'constant';
 
 import GlobalStyle from 'globalStyle';
-import { StyledApp } from 'app/styled';
+import { AppContainer, AppWrapper } from 'app/styled';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 
 const App: React.FC = () => {
@@ -73,13 +73,15 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <StyledApp colourScheme={colourScheme}>
-      <GlobalStyle />
-      <ErrorBoundary>
-        <Main />
-        <Footer />
-      </ErrorBoundary>
-    </StyledApp>
+    <AppWrapper colourScheme={colourScheme}>
+      <AppContainer colourScheme={colourScheme}>
+        <GlobalStyle />
+        <ErrorBoundary>
+          <Main />
+          <Footer />
+        </ErrorBoundary>
+      </AppContainer>
+    </AppWrapper>
   );
 };
 

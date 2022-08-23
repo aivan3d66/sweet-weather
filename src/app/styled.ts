@@ -4,10 +4,15 @@ import { classNames } from '../constant';
 import theme from '../theme';
 
 interface StyledAppProps {
-  colourScheme: { backgroundUrl: string; color: string };
+  colourScheme: { backgroundUrl: string; color: string; bgColor: string };
 }
 
-export const StyledApp = styled.div<StyledAppProps>`
+export const AppWrapper = styled.div<StyledAppProps>`
+  width: ${theme.width.full}%;
+  background-color: ${({ colourScheme }) => colourScheme.bgColor};
+`;
+
+export const AppContainer = styled.div<StyledAppProps>`
   position: relative;
   z-index: 3;
   display: flex;
