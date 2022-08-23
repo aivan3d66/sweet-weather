@@ -7574,6 +7574,11 @@
   "resolved" "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.11.tgz"
   "version" "6.0.11"
 
+"react-google-calendar-api@^2.0.3":
+  "integrity" "sha512-klmxKuv5roQfdaf4T9Tzv501DnLnAyuvCCFtd886BonGPufRXChznbIZA4cfFoI2bDNXQJt3P4ajMoErXqWYlA=="
+  "resolved" "https://registry.npmjs.org/react-google-calendar-api/-/react-google-calendar-api-2.0.3.tgz"
+  "version" "2.0.3"
+
 "react-is@^16.13.1":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
