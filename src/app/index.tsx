@@ -14,6 +14,8 @@ import {
   updateCountyCode,
   fetchWeatherSuccess,
   changeWeatherApi,
+  getIsAuth,
+  getTodos,
 } from 'actions';
 import { weatherDataSelector } from 'selectors';
 import { getBackgroundUrlAndColor } from 'utils';
@@ -53,6 +55,8 @@ const App: React.FC = () => {
     const country = localStorage.getItem(localeStorageItems.countryCode);
     const weatherData = localStorage.getItem(localeStorageItems.weatherData);
     const apiName = localStorage.getItem(localeStorageItems.apiName);
+    const isAuth = localStorage.getItem(localeStorageItems.isAuth);
+    const todoList = localStorage.getItem(localeStorageItems.todoList);
     if (!coordinates) {
       getCoordinates();
     } else {
@@ -69,6 +73,12 @@ const App: React.FC = () => {
     }
     if (apiName) {
       dispatch(changeWeatherApi(apiName));
+    }
+    if (isAuth) {
+      dispatch(getIsAuth(JSON.parse(isAuth)));
+    }
+    if (todoList) {
+      dispatch(getTodos(todoList));
     }
   }, []);
 
