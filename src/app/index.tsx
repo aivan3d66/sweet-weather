@@ -21,6 +21,7 @@ import { localeStorageItems } from 'constant';
 
 import GlobalStyle from 'globalStyle';
 import { StyledApp } from 'app/styled';
+import { ErrorBoundary } from '../components/ErrorBoundary';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -74,8 +75,10 @@ const App: React.FC = () => {
   return (
     <StyledApp colourScheme={colourScheme}>
       <GlobalStyle />
-      <Main />
-      <Footer />
+      <ErrorBoundary>
+        <Main />
+        <Footer />
+      </ErrorBoundary>
     </StyledApp>
   );
 };
