@@ -1,3 +1,4 @@
+import UserCalendar from 'components/UserCalendar';
 import React from 'react';
 
 import MainContent from './DateAndLocation';
@@ -7,6 +8,7 @@ const Main: React.FC = () => {
   return (
     <MainContainer>
       <MainContent />
+      <UserCalendar />
     </MainContainer>
   );
 };
