@@ -8,7 +8,7 @@ import {
 import {
   FETCH_LOCATION,
   FETCH_WEATHER,
-  GET_TODOS,
+  GET_IS_AUTH,
   UPDATE_LOCAL_STORAGE,
 } from '../../constant/actions';
 
@@ -25,5 +25,5 @@ export function* localeStorageWatcher() {
 }
 
 export function* calendarWatcher() {
-  yield takeEvery(GET_TODOS, calendarWorkers);
+  yield takeEvery(GET_IS_AUTH, calendarWorkers);
 }
