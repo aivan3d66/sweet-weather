@@ -1,4 +1,4 @@
-import { apiNames, baseUrl, colors, weatherCodes } from 'constant';
+import { apiNames, baseUrl, weatherCodes } from 'constant';
 import { UrlParams } from 'types';
 
 import thunderstorm from 'assets/thunderstorm.jpg';
@@ -8,13 +8,14 @@ import snow from 'assets/snow.jpg';
 import atmosphere from 'assets/atmosphere.jpg';
 import clear from 'assets/clear.jpg';
 import clouds from 'assets/clouds.jpg';
+import theme from 'theme';
 
 export const getUrlApi = (params: UrlParams) => {
   const { type, location, lat, lon } = params;
 
   switch (type) {
     case apiNames.locationiq:
-      return `${baseUrl.locationiqApi}/v1/reverse.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&lat=${lat}&lon=${lon}&format=json`;
+      return `${baseUrl.locationIqApi}/v1/reverse.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&lat=${lat}&lon=${lon}&format=json`;
     case apiNames.openWeather:
       return `${baseUrl.openWeatherApi}/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly&units=metric&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`;
     case apiNames.openWeatherGeocode:
@@ -38,18 +39,18 @@ export const getUrlIcon = (nameApi: string, weatherIcon: string) => {
 export const getBackgroundUrlAndColor = (weatherCode: number) => {
   switch (true) {
     case weatherCode < weatherCodes.drizzle:
-      return { backgroundUrl: thunderstorm, color: colors.grey };
+      return { backgroundUrl: thunderstorm, color: theme.colors.grey };
     case weatherCode < weatherCodes.rain:
-      return { backgroundUrl: drizzle, color: colors.lightGrey };
+      return { backgroundUrl: drizzle, color: theme.colors.lightGrey };
     case weatherCode < weatherCodes.snow:
-      return { backgroundUrl: rain, color: colors.black };
+      return { backgroundUrl: rain, color: theme.colors.lightGrey };
     case weatherCode < weatherCodes.atmosphere:
-      return { backgroundUrl: snow, color: colors.ligthBlack };
+      return { backgroundUrl: snow, color: theme.colors.lightBlack };
     case weatherCode < weatherCodes.clear:
-      return { backgroundUrl: atmosphere, color: colors.darkGgrey };
+      return { backgroundUrl: atmosphere, color: theme.colors.darkGrey };
     case weatherCode === weatherCodes.clear:
-      return { backgroundUrl: clear, color: colors.lightPink };
+      return { backgroundUrl: clear, color: theme.colors.lightPink };
     default:
-      return { backgroundUrl: clouds, color: colors.orange };
+      return { backgroundUrl: clouds, color: theme.colors.orange };
   }
 };
