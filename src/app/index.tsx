@@ -26,7 +26,7 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
   const weatherdata = useTypedSelector(weatherDataSelector);
 
-  const backgroundAndColor = weatherdata[0]
+  const colourScheme = weatherdata[0]
     ? getBackgroundUrlAndColor(weatherdata[0].code)
     : getBackgroundUrlAndColor(800);
 
@@ -72,7 +72,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <StyledApp backgroundAndColor={backgroundAndColor}>
+    <StyledApp colourScheme={colourScheme}>
       <GlobalStyle />
       <Main />
       <Footer />
@@ -80,4 +80,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default React.memo(App);

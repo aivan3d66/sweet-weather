@@ -1,86 +1,75 @@
 import styled from 'styled-components';
 
 import { classNames } from '../constant';
+import theme from '../theme';
 
 interface StyledAppProps {
-  backgroundAndColor: { backgroundUrl: string; color: string };
+  colourScheme: { backgroundUrl: string; color: string };
 }
 
 export const StyledApp = styled.div<StyledAppProps>`
-  height: 100%;
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
-  z-index: 3;
-  color: ${(props) => props.backgroundAndColor.color};
+  min-width: ${theme.viewPorts.mobile}px;
+  height: ${theme.height.lg}px;
+  margin: ${theme.margins.m4}px auto 0 auto;
+  color: ${({ colourScheme }) => colourScheme.color};
+  ${theme.boxShadows[0]};
 
+  @media (min-width: ${theme.viewPorts.tablet}px) {
+    width: ${theme.viewPorts.tablet}px;
+  }
+
+  @media (min-width: ${theme.viewPorts.desktop}px) {
+    width: ${theme.viewPorts.desktop}px;
+  }
   &::after {
-    z-index: -1;
     content: '';
-    background-image: url(${(props) => props.backgroundAndColor.backgroundUrl});
-    background-size: cover;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: -1;
+    background-image: url(${({ colourScheme }) => colourScheme.backgroundUrl});
+    background-size: cover;
     opacity: 0.9;
   }
 
   button {
-    border: none;
-    cursor: pointer;
-    background-color: ${(props) => props.backgroundAndColor.color};
-    color: #fff;
-
-    &:disabled {
-      cursor: default;
-      opacity: 0.8;
-    }
+    background-color: ${({ colourScheme }) => colourScheme.color};
   }
 
   input {
+    color: ${({ colourScheme }) => colourScheme.color};
     background-color: transparent;
     border: none;
-    color: ${(props) => props.backgroundAndColor.color};
 
     &:focus {
       outline: none;
     }
 
     &::placeholder {
-      color: ${(props) => props.backgroundAndColor.color};
+      color: ${({ colourScheme }) => colourScheme.color};
     }
   }
+  & .${classNames.cityInputContainer} {
+    color: ${({ colourScheme }) => colourScheme.color};
 
-  input[type='time'] {
-    color: #fff;
-    font-size: 20px;
-    border: 3px solid ${(props) => props.backgroundAndColor.color};
-  }
-
-  input[type='date']::-webkit-calendar-picker-indicator {
-    width: 20px;
-    height: 20px;
-  }
-
-  & .${classNames.cityIputContainer} {
-    background-color: ${(props) => props.backgroundAndColor.color};
-    color: #fff;
-    border-radius: 10px;
-
-    & input {
-      color: #fff;
+    input {
+      color: ${({ colourScheme }) => colourScheme.color};
     }
   }
 
   svg {
-    fill: ${(props) => props.backgroundAndColor.color};
+    fill: ${({ colourScheme }) => colourScheme.color};
   }
 
   .errorContainer {
-    background-color: ${(props) => props.backgroundAndColor.color};
-    color: #fff;
+    color: ${theme.colors.white};
+    background-color: ${({ colourScheme }) => colourScheme.color};
   }
 `;
