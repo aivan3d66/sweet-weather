@@ -17,3 +17,8 @@ export interface WeatherStateType {
   weatherLoading: boolean;
   weatherStateError: null | string;
 }
+
+export interface CalendarStateType {
+  isAuth: boolean;
+  todoList: Array<any>;
+}
