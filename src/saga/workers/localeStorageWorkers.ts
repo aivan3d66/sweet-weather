@@ -19,6 +19,12 @@ export function* localeStorageWorker() {
     case localeStorageItems.weatherData:
       nameItem = localeStorageItems.weatherData;
       break;
+    case localeStorageItems.isAuth:
+      nameItem = localeStorageItems.isAuth;
+      break;
+    case localeStorageItems.todoList:
+      nameItem = localeStorageItems.todoList;
+      break;
     default:
       nameItem = localeStorageItems.apiName;
       break;
