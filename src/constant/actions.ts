@@ -15,3 +15,7 @@ export const FETCH_WEATHER = 'FETCH_WEATHER';
 export const FETCH_WEATHER_SUCCESS = 'FETCH_WEATHER_SUCCESS';
 export const FETCH_WEATHER_ERROR = 'FETCH_WEATHER_ERROR';
 export const CHANGE_WEATHER_API = 'CHANGE_WEATHER_API';
+
+// google calendar actions
+export const GET_IS_AUTH = 'GET_IS_AUTH';
+export const GET_TODOS = 'GET_TODOS';
