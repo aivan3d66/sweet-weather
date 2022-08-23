@@ -4,5 +4,6 @@ export const localeStorageItems = {
   countryCode: 'countryCode',
   weatherData: 'weatherData',
   apiName: 'apiName',
-  toDoList: 'toDoList',
+  isAuth: 'isAuth',
+  todoList: 'todoList',
 };
