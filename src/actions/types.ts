@@ -13,6 +13,7 @@ import {
   fetchWeatherSuccess,
 } from './weatherActions';
 import { updateLocalStorage } from './localStorageActions';
+import { getIsAuth, getTodos } from './calendarActions';
 
 export type LocationActionCreatorTypes =
   | ReturnType<typeof fetchLocation>
@@ -31,3 +32,7 @@ export type FetchActionCreatorTypes =
 export type LocalStorageActionCreatorType = ReturnType<
   typeof updateLocalStorage
 >;
+
+export type CalendarActionCreatorsType =
+  | ReturnType<typeof getIsAuth>
+  | ReturnType<typeof getTodos>;
