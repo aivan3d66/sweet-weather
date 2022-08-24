@@ -1,7 +1,6 @@
 import { all } from 'redux-saga/effects';
 
 import {
-  calendarWatcher,
   localeStorageWatcher,
   locationWatcher,
   weatherWatcher,
@@ -12,6 +11,5 @@ export default function* rootSaga() {
     locationWatcher(),
     weatherWatcher(),
     localeStorageWatcher(),
-    calendarWatcher(),
   ]);
 }
