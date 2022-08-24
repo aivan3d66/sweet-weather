@@ -25,6 +25,7 @@ export const UserCalendarControllers = styled.h1`
 export const UserCalendarList = styled.ul`
   width: ${theme.width.full}%;
   padding: ${theme.paddings.p1}px 0;
+  list-style: none;
 `;
 
 export const UserCalendarListItem = styled.li`

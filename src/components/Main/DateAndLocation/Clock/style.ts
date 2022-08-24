@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "../../../../theme";
+import styled from 'styled-components';
+import theme from '../../../../theme';
 
 export const ClockContainer = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const ClockContainer = styled.div`
   @media (min-width: ${theme.viewPorts.mobile}px) {
     font-size: ${theme.textStyle.lg.fontSize}px;
   }
-  
+
   @media (max-width: ${theme.viewPorts.tablet}px) {
     margin: ${theme.margins.m2}px 0;
   }
