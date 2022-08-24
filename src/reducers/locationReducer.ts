@@ -8,13 +8,14 @@ import {
   UPDATE_LOCATION,
 } from 'constant/actions';
 import { LocationStateType } from './types';
+import { defaultValues } from '../constant';
 
 const initialState: LocationStateType = {
   location: '',
   countryCode: '',
   coordinates: {
-    lat: 0,
-    lon: 0,
+    lat: defaultValues.location.lat,
+    lon: defaultValues.location.lon,
   },
   locationLoading: false,
   locationStateError: null,
