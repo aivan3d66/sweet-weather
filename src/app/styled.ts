@@ -8,8 +8,20 @@ interface StyledAppProps {
 }
 
 export const AppWrapper = styled.div<StyledAppProps>`
+  position: relative;
   width: ${theme.width.full}%;
+  background-image: url(${({ colourScheme }) => colourScheme.backgroundUrl});
+  background-size: cover;
   background-color: ${({ colourScheme }) => colourScheme.bgColor};
+  &::before {
+    position: absolute;
+    z-index: 0;
+    content: '';
+    width: ${theme.width.full}%;
+    height: ${theme.height.full}%;
+    background-color: black;
+    opacity: 0.5;
+  }
 `;
 
 export const AppContainer = styled.div<StyledAppProps>`
