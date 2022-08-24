@@ -9,7 +9,7 @@ import {
 import { WeatherStateType } from './types';
 
 const initialState: WeatherStateType = {
-  nameAPI: apiNames.openWeather,
+  nameAPI: apiNames.weatherbit,
   weatherData: [],
   weatherLoading: false,
   weatherStateError: null,
