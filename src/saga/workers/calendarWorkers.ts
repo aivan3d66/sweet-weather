@@ -1,3 +1,6 @@
+import { put } from 'redux-saga/effects';
+import { getIsAuth } from '../../actions';
+
 export function* calendarWorker() {
-  yield console.log('Saga run');
+  yield put(getIsAuth(true));
 }
