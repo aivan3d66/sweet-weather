@@ -1,6 +1,6 @@
 import { takeEvery } from 'redux-saga/effects';
 import {
-  calendarWorkers,
+  calendarWorker,
   localeStorageWorker,
   locationWorker,
   weatherWorker,
@@ -25,5 +25,5 @@ export function* localeStorageWatcher() {
 }
 
 export function* calendarWatcher() {
-  yield takeEvery(GET_IS_AUTH, calendarWorkers);
+  yield takeEvery(GET_IS_AUTH, calendarWorker);
 }
