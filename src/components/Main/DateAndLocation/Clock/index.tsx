@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { getCurrentDate } from 'utils';
 
-import { text } from 'constant';
 import { ClockContainer, ClockPeriod, ClockTime } from './style';
 
 const Clock: React.FC = () => {
@@ -16,7 +16,7 @@ const Clock: React.FC = () => {
   return (
     <ClockContainer>
       <ClockTime>{date.toLocaleTimeString()}</ClockTime>
-      <ClockPeriod>{date.getHours() > 12 ? text.pm : text.am}</ClockPeriod>
+      <ClockPeriod>{getCurrentDate(date)}</ClockPeriod>
     </ClockContainer>
   );
 };
