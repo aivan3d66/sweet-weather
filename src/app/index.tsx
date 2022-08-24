@@ -78,7 +78,7 @@ const App: React.FC = () => {
       dispatch(getIsAuth(JSON.parse(isAuth)));
     }
     if (todoList) {
-      dispatch(getTodos(todoList));
+      dispatch(getTodos(JSON.parse(todoList)));
     }
   }, []);
 
