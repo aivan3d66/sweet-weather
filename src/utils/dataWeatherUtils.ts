@@ -11,10 +11,10 @@ import { getDate } from './dateUtils';
 const mapOpenWeatherData = (weatherData: OpenWeatherApiDataTypeDaily[]) => {
   return weatherData.map((dayInfo) => ({
     date: getDate(dayInfo.dt),
-    temp: Math.round(dayInfo.temp.day),
+    temp: Math.round(dayInfo.main.temp),
     weatherIcon: dayInfo.weather[0].icon,
     weatherMain: dayInfo.weather[0].main,
-    wind: dayInfo.wind_speed,
+    wind: dayInfo.wind.speed,
     code: dayInfo.weather[0].id,
   }));
 };
@@ -34,11 +34,11 @@ export const getDataFromOpenWeatherApi = (
   api: string,
   weatherInfo: SubTotalWeatherDataType,
 ) => {
-  const { daily, data } = weatherInfo;
+  const { list, data } = weatherInfo;
   let result: CurrentWeatherDataType[] | null = null;
   switch (api) {
     case apiNames.openWeather:
-      result = mapOpenWeatherData(daily);
+      result = mapOpenWeatherData(list);
       break;
     default:
       result = mapWeatherBitData(data);

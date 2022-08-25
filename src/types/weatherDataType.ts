@@ -3,7 +3,7 @@ export type TotalWeatherDataType = {
 };
 
 export type SubTotalWeatherDataType = {
-  daily: OpenWeatherApiDataTypeDaily[];
+  list: OpenWeatherApiDataTypeDaily[];
   data: WeatherBitApiDataTypeDaily[];
 };
 
@@ -18,7 +18,7 @@ export type CurrentWeatherDataType = {
 
 export type OpenWeatherApiDataTypeDaily = {
   dt: number;
-  temp: { day: number };
+  main: { temp: number };
   weather: [
     {
       id: number;
@@ -26,7 +26,9 @@ export type OpenWeatherApiDataTypeDaily = {
       main: string;
     },
   ];
-  wind_speed: number;
+  wind: {
+    speed: number;
+  };
 };
 
 export type WeatherBitApiDataTypeDaily = {
