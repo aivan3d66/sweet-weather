@@ -35,13 +35,13 @@ export function* getLocationCoordinates() {
 
     yield put(updateCountyCode(country));
     yield put(updateLocalStorage(localeStorageItems.countryCode, country));
-    yield put(updateCoordinates({ lat, lon }));
     yield put(
       updateLocalStorage(
         localeStorageItems.coordinates,
         JSON.stringify({ lat, lon }),
       ),
     );
+    yield put(updateCoordinates({ lat, lon }));
   } catch (err) {
     yield put(fetchLocationError(errors.geocodeApiError));
   }
@@ -61,7 +61,7 @@ export function* locationWorker() {
 
     const {
       data: {
-        address: { city },
+        address: { town },
       },
     }: NavigatorFetchDataType = yield call(axios.get, urlApiLocation);
     yield put(
@@ -70,8 +70,8 @@ export function* locationWorker() {
         { lat, lon }.toString(),
       ),
     );
-    yield put(fetchLocationSuccess(city));
-    yield put(updateLocalStorage(localeStorageItems.location, city));
+    yield put(fetchLocationSuccess(town));
+    yield put(updateLocalStorage(localeStorageItems.location, town));
     yield put(fetchWeather());
   } catch (error) {
     yield put(fetchLocationError(errors.locationIQApiError));

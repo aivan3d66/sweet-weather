@@ -1,5 +1,5 @@
 export type NavigatorFetchDataType = {
-  data: { address: { city: string } };
+  data: { address: { town: string } };
 };
 
 export type OpenWeatherFetchGeocodeType = {
