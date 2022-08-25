@@ -17,7 +17,7 @@ import {
 } from 'actions';
 import { weatherDataSelector } from 'selectors';
 import { getBackgroundUrlAndColor } from 'utils';
-import { localeStorageItems } from 'constant';
+import { defaultValues, localeStorageItems } from 'constant';
 
 import GlobalStyle from 'globalStyle';
 import { AppContainer, AppWrapper } from 'app/styled';
@@ -43,6 +43,8 @@ const App: React.FC = () => {
       },
       (error: GeolocationPositionError) => {
         dispatch(fetchLocationError(error.message));
+        dispatch(updateCoordinates(defaultValues.location));
+        dispatch(fetchLocation());
       },
     );
   };
