@@ -14,6 +14,7 @@ import { getIsAuth } from '../../actions';
 import { useTypedSelector } from '../../hooks';
 import { calendarStateSelector } from '../../selectors';
 import { localeStorageItems } from '../../constant';
+import Button from '../Button';
 
 const apiCalendar = new ApiCalendar(config);
 
@@ -48,12 +49,12 @@ const UserCalendar = () => {
     <UserCalendarContainer>
       <UserCalendarTitle>Google Calendar</UserCalendarTitle>
       <UserCalendarControllers>
-        <button type="button" onClick={handleSyncButton}>
-          Sync with Google Calendar
-        </button>
-        <button type="button" onClick={handleTodosButton} disabled={!isAuth}>
-          Get todos
-        </button>
+        <Button value="Sync with Google Calendar" onClick={handleSyncButton} />
+        <Button
+          value="Get todos"
+          onClick={handleTodosButton}
+          disabled={!isAuth}
+        />
       </UserCalendarControllers>
       <UserCalendarList>
         {todos.length > 0 &&
