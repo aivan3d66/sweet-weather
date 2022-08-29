@@ -6,14 +6,15 @@ import {
   fetchWeatherSuccess,
   updateLocalStorage,
 } from 'actions';
-import { apiNames, errors, localeStorageItems } from 'constant';
+import { apiNames, errors, localStorageItems } from 'constant';
 import { RootState } from 'reducers';
-import { CurrentWeatherDataType, TotalWeatherDataType } from 'types';
 import { getDataFromOpenWeatherApi, getUrlApi } from 'utils';
 
+import { CurrentWeatherDataType } from 'components/Footer/WeatherList/WeatherListItem/types';
 import { getLocationCoordinates } from './locationWorkers';
+import { TotalWeatherDataType } from './types';
 
-export function* weatherWorker(): any {
+export function* weatherWorker() {
   try {
     yield getLocationCoordinates();
     const {
@@ -24,22 +25,22 @@ export function* weatherWorker(): any {
       },
       weatherState: { nameAPI },
     }: RootState = yield select((state: RootState) => state);
-    yield put(updateLocalStorage(localeStorageItems.apiName, nameAPI));
-    yield put(updateLocalStorage(localeStorageItems.location, location));
-    yield put(updateLocalStorage(localeStorageItems.countryCode, countryCode));
+    yield put(updateLocalStorage(localStorageItems.apiName, nameAPI));
+    yield put(updateLocalStorage(localStorageItems.location, location));
+    yield put(updateLocalStorage(localStorageItems.countryCode, countryCode));
     const url: string =
       nameAPI === apiNames.openWeather
         ? yield getUrlApi({ type: nameAPI, lat, lon })
         : yield getUrlApi({ type: nameAPI, location });
 
     const { data }: TotalWeatherDataType = yield call(axios.get, url);
-    const info: CurrentWeatherDataType[] = yield getDataFromOpenWeatherApi(
+    const info: Array<CurrentWeatherDataType> = yield getDataFromOpenWeatherApi(
       nameAPI,
       data,
     );
     yield put(fetchWeatherSuccess(info));
     yield put(
-      updateLocalStorage(localeStorageItems.weatherData, JSON.stringify(info)),
+      updateLocalStorage(localStorageItems.weatherData, JSON.stringify(info)),
     );
   } catch (err) {
     yield put(fetchWeatherError(errors.weatherApiError));
