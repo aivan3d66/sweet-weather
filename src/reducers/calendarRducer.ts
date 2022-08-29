@@ -8,7 +8,6 @@ const initialState: CalendarStateType = {
 };
 
 const calendarReducer = (
-  // eslint-disable-next-line @typescript-eslint/default-param-last
   state = initialState,
   action: CalendarActionCreatorsType,
 ): CalendarStateType => {

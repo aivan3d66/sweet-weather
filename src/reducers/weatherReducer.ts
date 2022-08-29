@@ -16,7 +16,6 @@ const initialState: WeatherStateType = {
 };
 
 const weatherReducer = (
-  // eslint-disable-next-line @typescript-eslint/default-param-last
   state = initialState,
   action: FetchActionCreatorTypes,
 ): WeatherStateType => {
