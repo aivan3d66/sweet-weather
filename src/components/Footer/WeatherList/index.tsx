@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-
+import { v4 as uuidv4 } from 'uuid';
 import { useTypedSelector } from 'hooks';
 import { locationStateSelector, weatherStateSelector } from 'selectors';
 import { Spinner } from 'components/Spinner';
@@ -21,7 +21,7 @@ const WeatherList: React.FC = () => {
         .filter((_, index) => index)
         .map(({ date, weatherIcon, weatherMain, temp, wind, code }) => (
           <WeatherListItem
-            key={date}
+            key={uuidv4()}
             temp={temp}
             date={date}
             wind={wind}
