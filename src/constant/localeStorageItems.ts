@@ -1,4 +1,4 @@
-export const localeStorageItems = {
+export const localStorageItems = {
   coordinates: 'coordinates',
   location: 'location',
   countryCode: 'countryCode',
