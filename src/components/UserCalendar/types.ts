@@ -34,7 +34,7 @@ export interface ITodosList {
   };
   sequence: number;
   start: {
-    date: string;
+    dateTime: string;
   };
   status: string;
   summary: string;
