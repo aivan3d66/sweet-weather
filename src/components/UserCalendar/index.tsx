@@ -15,12 +15,13 @@ import { useTypedSelector } from '../../hooks';
 import { calendarStateSelector } from '../../selectors';
 import { localeStorageItems } from '../../constant';
 import Button from '../Button';
+import { IResult, ITodosList } from './types';
 
 const apiCalendar = new ApiCalendar(config);
 
 const UserCalendar = () => {
   const { isAuth } = useTypedSelector(calendarStateSelector);
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<Array<ITodosList>>([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,13 +38,15 @@ const UserCalendar = () => {
 
   const handleTodosButton = () => {
     if (apiCalendar.sign)
-      apiCalendar.listUpcomingEvents(10).then(({ result }: any) => {
-        setTodos(result.items);
-        localStorage.setItem(
-          localeStorageItems.todoList,
-          JSON.stringify(result.items),
-        );
-      });
+      apiCalendar
+        .listUpcomingEvents(10)
+        .then(({ result }: { result: IResult }) => {
+          setTodos(result.items);
+          localStorage.setItem(
+            localeStorageItems.todoList,
+            JSON.stringify(result.items),
+          );
+        });
   };
   return (
     <UserCalendarContainer>
@@ -58,10 +61,11 @@ const UserCalendar = () => {
       </UserCalendarControllers>
       <UserCalendarList>
         {todos.length > 0 &&
-          todos.map(({ id, start, summary }: any) => {
+          todos.map(({ id, start, summary }) => {
+            const getDate = new Date(start.dateTime).toUTCString();
             return (
               <UserCalendarListItem key={id}>
-                {start.date} - {summary}
+                {getDate} - {summary}
               </UserCalendarListItem>
             );
           })}
