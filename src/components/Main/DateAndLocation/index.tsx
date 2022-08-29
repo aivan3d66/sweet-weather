@@ -3,8 +3,8 @@ import React from 'react';
 import { useTypedSelector } from 'hooks';
 import { locationStateSelector } from 'selectors';
 import { Spinner } from 'components/Spinner';
-import { ErrorComponent } from 'components/ErrorComponent';
 
+import ErrorComponent from 'components/ErrorComponent';
 import Clock from './Clock';
 import CityInput from './CityInput';
 import { MainContentContainer } from './styles';
