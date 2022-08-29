@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../../../theme';
 
-interface StyledCityInputProps {
-  customWidth: string;
-}
-
 export const CityInputContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,8 +8,8 @@ export const CityInputContainer = styled.div`
   text-align: right;
 `;
 
-export const InputField = styled.input<StyledCityInputProps>`
-  width: ${({ customWidth }) => customWidth};
+export const InputField = styled.input`
+  width: ${theme.width.full}%;
   font-size: ${theme.textStyle.xxl.fontSize}px;
   text-align: right;
 `;

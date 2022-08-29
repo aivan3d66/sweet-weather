@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useTypedSelector, useDebounce } from 'hooks';
 import { fetchWeather, updateLocationName } from 'actions';
-import { classNames, text } from 'constant';
+import { classNames } from 'constant';
 import { locationStateSelector } from 'selectors';
 
 import { CityInputContainer, CountryCode, InputField } from './styles';
@@ -12,10 +12,6 @@ const CityInput: React.FC = () => {
   const { location, countryCode } = useTypedSelector(locationStateSelector);
 
   const [locationName, setLocationName] = useState('');
-  const customWidth = useMemo(
-    () => `${(locationName.length + 1) * 20}${text.px}`,
-    [locationName],
-  );
 
   const dispatch = useDispatch();
 
@@ -52,7 +48,6 @@ const CityInput: React.FC = () => {
         type="text"
         value={locationName}
         onChange={handleChangeInputValue}
-        customWidth={customWidth}
       />
       {countryCode && <CountryCode>{countryCode}</CountryCode>}
     </CityInputContainer>
