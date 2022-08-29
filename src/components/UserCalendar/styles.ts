@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import theme from '../../theme';
 
 export const UserCalendarContainer = styled.div`
-  width: 400px;
-  height: 200px;
+  width: ${theme.width.full}%;
+  height: ${theme.height.full}%;
   margin: ${theme.margins.m2}px 0;
 `;
 
@@ -31,4 +31,5 @@ export const UserCalendarList = styled.ul`
 export const UserCalendarListItem = styled.li`
   width: ${theme.width.full}%;
   margin: ${theme.margins.m1}px 0;
+  font-size: ${theme.textStyle.lg.fontSize}px;
 `;
