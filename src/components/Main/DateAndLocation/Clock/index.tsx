@@ -4,7 +4,7 @@ import { getCurrentDate } from 'utils';
 import { ClockContainer, ClockPeriod, ClockTime } from './style';
 
 const Clock: React.FC = () => {
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState<Date>(new Date());
 
   useEffect(() => {
     const interval = setInterval(() => {

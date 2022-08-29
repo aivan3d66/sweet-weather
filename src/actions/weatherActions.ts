@@ -1,17 +1,19 @@
+import { CurrentWeatherDataType } from 'components/Footer/WeatherList/WeatherListItem/types';
 import {
   CHANGE_WEATHER_API,
   FETCH_WEATHER,
   FETCH_WEATHER_ERROR,
   FETCH_WEATHER_SUCCESS,
 } from 'constant/actions';
-import { CurrentWeatherDataType } from 'types';
 
 export const fetchWeather = () =>
   ({
     type: FETCH_WEATHER,
   } as const);
 
-export const fetchWeatherSuccess = (dataWeather: CurrentWeatherDataType[]) =>
+export const fetchWeatherSuccess = (
+  dataWeather: Array<CurrentWeatherDataType>,
+) =>
   ({
     type: FETCH_WEATHER_SUCCESS,
     payload: dataWeather,

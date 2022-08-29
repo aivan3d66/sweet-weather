@@ -1,14 +1,16 @@
+import { CurrentWeatherDataType } from 'components/Footer/WeatherList/WeatherListItem/types';
 import { apiNames } from 'constant';
 import {
-  SubTotalWeatherDataType,
-  CurrentWeatherDataType,
   OpenWeatherApiDataTypeDaily,
+  SubTotalWeatherDataType,
   WeatherBitApiDataTypeDaily,
-} from 'types';
+} from 'saga/workers/types';
 
 import { getDate } from './dateUtils';
 
-const mapOpenWeatherData = (weatherData: OpenWeatherApiDataTypeDaily[]) => {
+const mapOpenWeatherData = (
+  weatherData: Array<OpenWeatherApiDataTypeDaily>,
+) => {
   return weatherData.map((dayInfo) => ({
     date: getDate(dayInfo.dt),
     temp: Math.round(dayInfo.main.temp),
@@ -19,7 +21,7 @@ const mapOpenWeatherData = (weatherData: OpenWeatherApiDataTypeDaily[]) => {
   }));
 };
 
-const mapWeatherBitData = (weatherData: WeatherBitApiDataTypeDaily[]) => {
+const mapWeatherBitData = (weatherData: Array<WeatherBitApiDataTypeDaily>) => {
   return weatherData.map((dayInfo) => ({
     date: getDate(dayInfo.ts),
     temp: Math.round(dayInfo.temp),
@@ -35,7 +37,7 @@ export const getDataFromOpenWeatherApi = (
   weatherInfo: SubTotalWeatherDataType,
 ) => {
   const { list, data } = weatherInfo;
-  let result: CurrentWeatherDataType[] | null = null;
+  let result: Array<CurrentWeatherDataType> | null = null;
   switch (api) {
     case apiNames.openWeather:
       result = mapOpenWeatherData(list);

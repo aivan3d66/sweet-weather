@@ -1,5 +1,4 @@
 import { apiNames, baseUrl, weatherCodes } from 'constant';
-import { UrlParams } from 'types';
 
 import thunderstorm from 'assets/thunderstorm.jpg';
 import drizzle from 'assets/drizzle.jpg';
@@ -9,6 +8,7 @@ import atmosphere from 'assets/atmosphere.jpg';
 import clear from 'assets/clear.jpg';
 import clouds from 'assets/clouds.jpg';
 import theme from 'theme';
+import { UrlParams } from './types';
 
 export const getUrlApi = (params: UrlParams) => {
   const { type, location, lat, lon } = params;

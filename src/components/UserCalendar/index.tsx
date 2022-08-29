@@ -13,7 +13,7 @@ import {
 import { getIsAuth } from '../../actions';
 import { useTypedSelector } from '../../hooks';
 import { calendarStateSelector } from '../../selectors';
-import { localeStorageItems } from '../../constant';
+import { localStorageItems } from '../../constant';
 import Button from '../Button';
 import { IResult, ITodosList } from './types';
 
@@ -25,7 +25,7 @@ const UserCalendar = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const todoList = localStorage.getItem(localeStorageItems.todoList);
+    const todoList = localStorage.getItem(localStorageItems.todoList);
     if (todoList) {
       setTodos(JSON.parse(todoList));
     }
@@ -43,7 +43,7 @@ const UserCalendar = () => {
         .then(({ result }: { result: IResult }) => {
           setTodos(result.items);
           localStorage.setItem(
-            localeStorageItems.todoList,
+            localStorageItems.todoList,
             JSON.stringify(result.items),
           );
         });

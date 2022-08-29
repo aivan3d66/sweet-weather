@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { useTypedSelector } from 'hooks';
-import { CurrentWeatherDataType } from 'types';
 import { getUrlIcon } from 'utils';
 import { text } from 'constant';
 import { weatherStateSelector } from 'selectors';
@@ -13,6 +12,7 @@ import {
   WeatherListItemWeekday,
   WeatherListItemWind,
 } from './styles';
+import { CurrentWeatherDataType } from './types';
 
 const WeatherListItem: React.FC<CurrentWeatherDataType> = ({
   date,

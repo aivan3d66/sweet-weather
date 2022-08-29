@@ -2,11 +2,6 @@ import axios from 'axios';
 import { select, put, call } from 'redux-saga/effects';
 
 import {
-  CoordinatesType,
-  NavigatorFetchDataType,
-  OpenWeatherFetchGeocodeType,
-} from 'types';
-import {
   fetchLocationError,
   fetchLocationSuccess,
   fetchWeather,
@@ -16,9 +11,14 @@ import {
 } from 'actions';
 import { RootState } from 'reducers';
 import { locationStateSelector } from 'selectors';
-import { errors, apiNames, localeStorageItems } from 'constant';
+import { errors, apiNames, localStorageItems } from 'constant';
 import { getUrlApi } from 'utils';
 import { LocationStateType } from 'reducers/types';
+import {
+  CoordinatesType,
+  NavigatorFetchDataType,
+  OpenWeatherFetchGeocodeType,
+} from './types';
 
 export function* getLocationCoordinates() {
   try {
@@ -34,10 +34,10 @@ export function* getLocationCoordinates() {
     }: OpenWeatherFetchGeocodeType = yield call(axios.get, url);
 
     yield put(updateCountyCode(country));
-    yield put(updateLocalStorage(localeStorageItems.countryCode, country));
+    yield put(updateLocalStorage(localStorageItems.countryCode, country));
     yield put(
       updateLocalStorage(
-        localeStorageItems.coordinates,
+        localStorageItems.coordinates,
         JSON.stringify({ lat, lon }),
       ),
     );
@@ -66,12 +66,12 @@ export function* locationWorker() {
     }: NavigatorFetchDataType = yield call(axios.get, urlApiLocation);
     yield put(
       updateLocalStorage(
-        localeStorageItems.coordinates,
+        localStorageItems.coordinates,
         { lat, lon }.toString(),
       ),
     );
     yield put(fetchLocationSuccess(town));
-    yield put(updateLocalStorage(localeStorageItems.location, town));
+    yield put(updateLocalStorage(localStorageItems.location, town));
     yield put(fetchWeather());
   } catch (error) {
     yield put(fetchLocationError(errors.locationIQApiError));

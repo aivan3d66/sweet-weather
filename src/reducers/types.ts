@@ -1,4 +1,5 @@
-import { CurrentWeatherDataType } from '../types';
+import { CurrentWeatherDataType } from 'components/Footer/WeatherList/WeatherListItem/types';
+import { ITodosList } from '../components/UserCalendar/types';
 
 export interface LocationStateType {
   location: string;
@@ -13,12 +14,12 @@ export interface LocationStateType {
 
 export interface WeatherStateType {
   nameAPI: string;
-  weatherData: CurrentWeatherDataType[];
+  weatherData: Array<CurrentWeatherDataType>;
   weatherLoading: boolean;
   weatherStateError: null | string;
 }
 
 export interface CalendarStateType {
   isAuth: boolean;
-  todoList: Array<any>;
+  todoList: Array<ITodosList>;
 }

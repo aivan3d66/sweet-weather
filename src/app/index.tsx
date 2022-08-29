@@ -17,7 +17,7 @@ import {
 } from 'actions';
 import { weatherDataSelector } from 'selectors';
 import { getBackgroundUrlAndColor } from 'utils';
-import { defaultValues, localeStorageItems } from 'constant';
+import { defaultValues, localStorageItems } from 'constant';
 
 import GlobalStyle from 'globalStyle';
 import { AppContainer, AppWrapper } from 'app/styled';
@@ -50,11 +50,11 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    const coordinates = localStorage.getItem(localeStorageItems.coordinates);
-    const location = localStorage.getItem(localeStorageItems.location);
-    const country = localStorage.getItem(localeStorageItems.countryCode);
-    const weatherData = localStorage.getItem(localeStorageItems.weatherData);
-    const apiName = localStorage.getItem(localeStorageItems.apiName);
+    const coordinates = localStorage.getItem(localStorageItems.coordinates);
+    const location = localStorage.getItem(localStorageItems.location);
+    const country = localStorage.getItem(localStorageItems.countryCode);
+    const weatherData = localStorage.getItem(localStorageItems.weatherData);
+    const apiName = localStorage.getItem(localStorageItems.apiName);
     if (!coordinates) {
       getCoordinates();
     } else {
