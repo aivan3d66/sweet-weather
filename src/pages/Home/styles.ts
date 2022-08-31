@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { classNames } from '@/constant';
 import theme from '@/theme';
 
 interface StyledAppProps {
@@ -69,13 +68,6 @@ export const HomeContainer = styled.div<StyledAppProps>`
     }
 
     &::placeholder {
-      color: ${({ colourScheme }) => colourScheme.color};
-    }
-  }
-  & .${classNames.cityInputContainer} {
-    color: ${({ colourScheme }) => colourScheme.color};
-
-    input {
       color: ${({ colourScheme }) => colourScheme.color};
     }
   }

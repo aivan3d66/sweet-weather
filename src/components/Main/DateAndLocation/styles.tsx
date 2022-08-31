@@ -11,3 +11,5 @@ export const MainContentContainer = styled.div`
     justify-content: center;
   }
 `;
+
+export const ClockWrapper = styled.div``;
