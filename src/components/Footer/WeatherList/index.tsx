@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useTypedSelector } from '@/hooks';
-import { locationStateSelector, weatherStateSelector } from '@/selectors';
+import { weatherStateSelector } from '@/selectors';
 import { Spinner } from '@/components/Spinner';
 
 import ErrorComponent from '@/components/ErrorComponent';
@@ -12,7 +12,6 @@ import { WeatherListContainer, WeatherListWrapper } from './styles';
 const WeatherList: React.FC = () => {
   const { weatherData, weatherLoading, weatherStateError } =
     useTypedSelector(weatherStateSelector);
-  const { locationStateError } = useTypedSelector(locationStateSelector);
 
   const renderWeatherListItems = useMemo(
     () =>
@@ -38,9 +37,6 @@ const WeatherList: React.FC = () => {
   }
   if (weatherStateError) {
     return <ErrorComponent errorMessage={weatherStateError} />;
-  }
-  if (locationStateError) {
-    return null;
   }
 
   return (
