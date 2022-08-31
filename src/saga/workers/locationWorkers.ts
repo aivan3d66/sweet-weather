@@ -9,8 +9,7 @@ import {
   updateCountyCode,
   updateLocalStorage,
 } from '@/actions';
-import { RootState } from '@/reducers';
-import { locationStateSelector } from '@/selectors';
+import { coordinatesStateSelector, locationStateSelector } from '@/selectors';
 import { errors, apiNames, localStorageItems } from '@/constant';
 import { getUrlApi } from '@/utils';
 import { LocationStateType } from '@/reducers/types';
@@ -19,6 +18,38 @@ import {
   NavigatorFetchDataType,
   OpenWeatherFetchGeocodeType,
 } from './types';
+
+export function* locationWorker() {
+  try {
+    const { lat, lon }: CoordinatesType = yield select(
+      coordinatesStateSelector,
+    );
+
+    const urlApiLocation: string = yield getUrlApi({
+      type: apiNames.locationiq,
+      lat,
+      lon,
+    });
+
+    const {
+      data: {
+        address: { city },
+      },
+    }: NavigatorFetchDataType = yield call(axios.get, urlApiLocation);
+
+    yield put(
+      updateLocalStorage(
+        localStorageItems.coordinates,
+        { lat, lon }.toString(),
+      ),
+    );
+    yield put(fetchLocationSuccess(city));
+    yield put(updateLocalStorage(localStorageItems.location, city));
+    yield put(fetchWeather());
+  } catch (error) {
+    yield put(fetchLocationError(errors.locationIQApiError));
+  }
+}
 
 export function* getLocationCoordinates() {
   try {
@@ -44,36 +75,5 @@ export function* getLocationCoordinates() {
     yield put(updateCoordinates({ lat, lon }));
   } catch (err) {
     yield put(fetchLocationError(errors.geocodeApiError));
-  }
-}
-
-export function* locationWorker() {
-  try {
-    const { lat, lon }: CoordinatesType = yield select(
-      (state: RootState) => state.locationState.coordinates,
-    );
-
-    const urlApiLocation: string = yield getUrlApi({
-      type: apiNames.locationiq,
-      lat,
-      lon,
-    });
-
-    const {
-      data: {
-        address: { town },
-      },
-    }: NavigatorFetchDataType = yield call(axios.get, urlApiLocation);
-    yield put(
-      updateLocalStorage(
-        localStorageItems.coordinates,
-        { lat, lon }.toString(),
-      ),
-    );
-    yield put(fetchLocationSuccess(town));
-    yield put(updateLocalStorage(localStorageItems.location, town));
-    yield put(fetchWeather());
-  } catch (error) {
-    yield put(fetchLocationError(errors.locationIQApiError));
   }
 }
