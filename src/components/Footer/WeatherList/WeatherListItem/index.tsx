@@ -14,6 +14,8 @@ import {
 } from './styles';
 import { CurrentWeatherDataType } from './types';
 
+const { degree, mc } = text;
+
 const WeatherListItem: React.FC<CurrentWeatherDataType> = ({
   date,
   temp,
@@ -26,13 +28,13 @@ const WeatherListItem: React.FC<CurrentWeatherDataType> = ({
   return (
     <WeatherListItemContainer>
       <WeatherListItemWeekday>{[...date.split(' ')][0]}</WeatherListItemWeekday>
-      <WeatherListItemWind>{`${wind} ${text.mc}`}</WeatherListItemWind>
+      <WeatherListItemWind>{`${wind} ${mc}`}</WeatherListItemWind>
       <WeatherListItemIcon
         src={getUrlIcon(nameAPI, weatherIcon)}
         alt={weatherMain}
         title={weatherMain}
       />
-      <WeatherListItemTemp>{`${temp}${text.degree}`}</WeatherListItemTemp>
+      <WeatherListItemTemp>{`${temp}${degree}`}</WeatherListItemTemp>
     </WeatherListItemContainer>
   );
 };
