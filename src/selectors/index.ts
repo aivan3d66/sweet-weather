@@ -21,5 +21,8 @@ export const weatherStateSelector = (state: CombinedState<GlobalState>) =>
 export const locationStateSelector = (state: CombinedState<GlobalState>) =>
   state.locationState;
 
+export const coordinatesStateSelector = (state: CombinedState<GlobalState>) =>
+  state.locationState.coordinates;
+
 export const calendarStateSelector = (state: CombinedState<GlobalState>) =>
   state.calendarState;
