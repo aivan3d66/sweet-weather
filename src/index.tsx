@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 
 import App from '@/app';
+import GlobalStyle from '@/globalStyle';
 import { store } from '@/store';
 
 const rootContainer = document.getElementById('root');
@@ -11,6 +12,7 @@ const root = createRoot(rootContainer);
 
 root.render(
   <Provider store={store}>
+    <GlobalStyle />
     <App />
   </Provider>,
 );
