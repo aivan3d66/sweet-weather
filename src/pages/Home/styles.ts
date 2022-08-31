@@ -31,7 +31,6 @@ export const HomeContainer = styled.div<StyledAppProps>`
   flex-direction: column;
   justify-content: space-between;
   min-width: ${theme.viewPorts.mobile}px;
-  height: ${theme.height.lg}px;
   margin: ${theme.margins.m4}px auto 0 auto;
   color: ${({ colourScheme }) => colourScheme.color};
   ${theme.boxShadows[0]};
