@@ -5,7 +5,6 @@ import {
   fetchLocationError,
   updateCoordinates,
 } from '@/actions';
-import { defaultValues } from '@/constant';
 
 export const getCoordinates = (dispatch: Dispatch) => {
   navigator.geolocation.getCurrentPosition(
@@ -19,8 +18,6 @@ export const getCoordinates = (dispatch: Dispatch) => {
     },
     (error: GeolocationPositionError) => {
       dispatch(fetchLocationError(error.message));
-      dispatch(updateCoordinates(defaultValues.coordinates));
-      dispatch(fetchLocation());
     },
   );
 };
