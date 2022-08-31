@@ -7,7 +7,7 @@ import { Spinner } from '@/components/Spinner';
 import ErrorComponent from '@/components/ErrorComponent';
 import Clock from './Clock';
 import CityInput from './CityInput';
-import { MainContentContainer } from './styles';
+import { ClockWrapper, MainContentContainer } from './styles';
 
 const MainContent: React.FC = () => {
   const { locationStateError, locationLoading } = useTypedSelector(
@@ -17,12 +17,15 @@ const MainContent: React.FC = () => {
   if (locationLoading) {
     return <Spinner />;
   }
-  if (locationStateError) {
-    return <ErrorComponent errorMessage={locationStateError} />;
-  }
+
   return (
     <MainContentContainer>
-      <Clock />
+      <ClockWrapper>
+        {locationStateError && (
+          <ErrorComponent errorMessage={locationStateError} />
+        )}
+        <Clock />
+      </ClockWrapper>
       <CityInput />
     </MainContentContainer>
   );
