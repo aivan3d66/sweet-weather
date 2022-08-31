@@ -14,6 +14,8 @@ import {
   CurrentDayWrapper,
 } from './styles';
 
+const { degree, today } = text;
+
 const CurrentDay: React.FC = () => {
   const { weatherData, nameAPI } = useTypedSelector(weatherStateSelector);
 
@@ -27,10 +29,10 @@ const CurrentDay: React.FC = () => {
             title={weatherData[0].weatherMain}
           />
           <CurrentDayTitle>
-            <CurrentDayText>{text.today}</CurrentDayText>
+            <CurrentDayText>{today}</CurrentDayText>
             <CurrentDayTemp>
               {weatherData[0].temp}
-              {text.degree}
+              {degree}
             </CurrentDayTemp>
           </CurrentDayTitle>
         </CurrentDayWrapper>
