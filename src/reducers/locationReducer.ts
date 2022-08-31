@@ -14,8 +14,8 @@ const initialState: LocationStateType = {
   location: '',
   countryCode: '',
   coordinates: {
-    lat: defaultValues.location.lat,
-    lon: defaultValues.location.lon,
+    lat: defaultValues.coordinates.lat,
+    lon: defaultValues.coordinates.lon,
   },
   locationLoading: false,
   locationStateError: null,
