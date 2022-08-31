@@ -40,7 +40,7 @@ const UserCalendar = () => {
   const handleTodosButton = () => {
     if (apiCalendar.sign)
       apiCalendar
-        .listUpcomingEvents(10)
+        .listUpcomingEvents(20)
         .then(({ result }: { result: IResult }) => {
           setTodos(result.items);
           localStorage.setItem(
