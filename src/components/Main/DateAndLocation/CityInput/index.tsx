@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 
 import { useTypedSelector, useDebounce } from '@/hooks';
 import { fetchWeather, updateLocationName } from '@/actions';
-import { classNames } from '@/constant';
 import { locationStateSelector } from '@/selectors';
 
 import { CityInputContainer, CountryCode, InputField } from './styles';
@@ -11,7 +10,7 @@ import { CityInputContainer, CountryCode, InputField } from './styles';
 const CityInput: React.FC = () => {
   const { location, countryCode } = useTypedSelector(locationStateSelector);
 
-  const [locationName, setLocationName] = useState('');
+  const [locationName, setLocationName] = useState<string>(location);
 
   const dispatch = useDispatch();
 
@@ -43,11 +42,12 @@ const CityInput: React.FC = () => {
   }, [location]);
 
   return (
-    <CityInputContainer className={classNames.cityInputContainer}>
+    <CityInputContainer>
       <InputField
         type="text"
         value={locationName}
         onChange={handleChangeInputValue}
+        placeholder="write the city name here..."
       />
       {countryCode && <CountryCode>{countryCode}</CountryCode>}
     </CityInputContainer>
