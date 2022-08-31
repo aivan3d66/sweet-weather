@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ErrorMessage } from './styled';
+import { ErrorMessage } from './styles';
 
 import { Props, State } from './types';
 

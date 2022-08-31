@@ -1,6 +1,6 @@
 import { CalendarStateType } from './types';
-import { CalendarActionCreatorsType } from '../actions/types';
-import { GET_TODOS, GET_IS_AUTH } from '../constant/actions';
+import { CalendarActionCreatorsType } from '@/actions/types';
+import { GET_TODOS, GET_IS_AUTH } from '@/constant/actions';
 
 const initialState: CalendarStateType = {
   isAuth: false,

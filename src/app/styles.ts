@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { classNames } from '../constant';
-import theme from '../theme';
+import { classNames } from '@/constant';
+import theme from '@/theme';
 
 interface StyledAppProps {
   colourScheme: { backgroundUrl: string; color: string; bgColor: string };
@@ -19,7 +19,7 @@ export const AppWrapper = styled.div<StyledAppProps>`
     content: '';
     width: ${theme.width.full}%;
     height: ${theme.height.full}%;
-    background-color: black;
+    background-color: ${theme.colors.black};
     opacity: 0.5;
   }
 `;

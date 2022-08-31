@@ -1,7 +1,8 @@
-import { LocalStorageUpdateActionType } from 'actions/types';
-import { localStorageItems } from 'constant';
-import { UPDATE_LOCAL_STORAGE } from 'constant/actions';
 import { take } from 'redux-saga/effects';
+
+import { LocalStorageUpdateActionType } from '@/actions/types';
+import { localStorageItems } from '@/constant';
+import { UPDATE_LOCAL_STORAGE } from '@/constant/actions';
 
 export function* localeStorageWorker() {
   const action: LocalStorageUpdateActionType = yield take(UPDATE_LOCAL_STORAGE);

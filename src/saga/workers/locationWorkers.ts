@@ -8,12 +8,12 @@ import {
   updateCoordinates,
   updateCountyCode,
   updateLocalStorage,
-} from 'actions';
-import { RootState } from 'reducers';
-import { locationStateSelector } from 'selectors';
-import { errors, apiNames, localStorageItems } from 'constant';
-import { getUrlApi } from 'utils';
-import { LocationStateType } from 'reducers/types';
+} from '@/actions';
+import { RootState } from '@/reducers';
+import { locationStateSelector } from '@/selectors';
+import { errors, apiNames, localStorageItems } from '@/constant';
+import { getUrlApi } from '@/utils';
+import { LocationStateType } from '@/reducers/types';
 import {
   CoordinatesType,
   NavigatorFetchDataType,

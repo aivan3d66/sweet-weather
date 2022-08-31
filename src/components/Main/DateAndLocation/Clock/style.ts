@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import theme from '../../../../theme';
+
+import theme from '@/theme';
 
 export const ClockContainer = styled.div`
   display: flex;

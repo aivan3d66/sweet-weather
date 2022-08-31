@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ButtonPropsType } from './types';
-import { ButtonContainer } from './styled';
+import { ButtonContainer } from './styles';
 
 const Button: React.FC<ButtonPropsType> = ({ value, onClick, disabled }) => {
   return (

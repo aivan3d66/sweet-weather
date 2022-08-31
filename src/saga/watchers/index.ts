@@ -1,14 +1,15 @@
 import { takeEvery } from 'redux-saga/effects';
+
 import {
   localeStorageWorker,
   locationWorker,
   weatherWorker,
-} from 'saga/workers';
+} from '@/saga/workers';
 import {
   FETCH_LOCATION,
   FETCH_WEATHER,
   UPDATE_LOCAL_STORAGE,
-} from '../../constant/actions';
+} from '@/constant/actions';
 
 export function* locationWatcher() {
   yield takeEvery(FETCH_LOCATION, locationWorker);

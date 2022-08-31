@@ -1,11 +1,11 @@
-import { FetchActionCreatorTypes } from 'actions/types';
-import { apiNames } from 'constant';
+import { FetchActionCreatorTypes } from '@/actions/types';
+import { apiNames } from '@/constant';
 import {
   CHANGE_WEATHER_API,
   FETCH_WEATHER,
   FETCH_WEATHER_ERROR,
   FETCH_WEATHER_SUCCESS,
-} from 'constant/actions';
+} from '@/constant/actions';
 import { WeatherStateType } from './types';
 
 const initialState: WeatherStateType = {

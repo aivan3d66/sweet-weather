@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { useTypedSelector } from 'hooks';
-import { text } from 'constant';
-import { getUrlIcon } from 'utils';
-import { weatherStateSelector } from 'selectors';
+import { useTypedSelector } from '@/hooks';
+import { text } from '@/constant';
+import { getUrlIcon } from '@/utils';
+import { weatherStateSelector } from '@/selectors';
 
 import {
   CurrentDayContainer,

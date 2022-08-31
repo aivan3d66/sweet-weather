@@ -5,12 +5,12 @@ import {
   fetchWeatherError,
   fetchWeatherSuccess,
   updateLocalStorage,
-} from 'actions';
-import { apiNames, errors, localStorageItems } from 'constant';
-import { RootState } from 'reducers';
-import { getDataFromOpenWeatherApi, getUrlApi } from 'utils';
+} from '@/actions';
+import { apiNames, errors, localStorageItems } from '@/constant';
+import { RootState } from '@/reducers';
+import { getDataFromOpenWeatherApi, getUrlApi } from '@/utils';
 
-import { CurrentWeatherDataType } from 'components/Footer/WeatherList/WeatherListItem/types';
+import { CurrentWeatherDataType } from '@/components/Footer/WeatherList/WeatherListItem/types';
 import { getLocationCoordinates } from './locationWorkers';
 import { TotalWeatherDataType } from './types';
 

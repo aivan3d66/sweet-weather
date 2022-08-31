@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { useTypedSelector, useDebounce } from 'hooks';
-import { fetchWeather, updateLocationName } from 'actions';
-import { classNames } from 'constant';
-import { locationStateSelector } from 'selectors';
+import { useTypedSelector, useDebounce } from '@/hooks';
+import { fetchWeather, updateLocationName } from '@/actions';
+import { classNames } from '@/constant';
+import { locationStateSelector } from '@/selectors';
 
 import { CityInputContainer, CountryCode, InputField } from './styles';
 

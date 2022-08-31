@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { useTypedSelector } from 'hooks';
-import { getUrlIcon } from 'utils';
-import { text } from 'constant';
-import { weatherStateSelector } from 'selectors';
+import { useTypedSelector } from '@/hooks';
+import { getUrlIcon } from '@/utils';
+import { text } from '@/constant';
+import { weatherStateSelector } from '@/selectors';
 
 import {
   WeatherListItemContainer,

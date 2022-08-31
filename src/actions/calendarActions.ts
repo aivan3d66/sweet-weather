@@ -1,4 +1,4 @@
-import { GET_IS_AUTH, GET_TODOS } from 'constant/actions';
+import { GET_IS_AUTH, GET_TODOS } from '@/constant/actions';
 
 export const getIsAuth = (value: boolean) =>
   ({

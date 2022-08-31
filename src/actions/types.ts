@@ -14,7 +14,7 @@ import {
 } from './weatherActions';
 import { updateLocalStorage } from './localStorageActions';
 import { getIsAuth, getTodos } from './calendarActions';
-import { UPDATE_LOCAL_STORAGE } from '../constant/actions';
+import { UPDATE_LOCAL_STORAGE } from '@/constant/actions';
 
 export type LocationActionCreatorTypes =
   | ReturnType<typeof fetchLocation>

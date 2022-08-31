@@ -1,4 +1,4 @@
-import { LocationActionCreatorTypes } from 'actions/types';
+import { LocationActionCreatorTypes } from '@/actions/types';
 import {
   FETCH_LOCATION,
   FETCH_LOCATION_ERROR,
@@ -6,9 +6,9 @@ import {
   UPDATE_COORDINATES,
   UPDATE_COUNTRY_CODE,
   UPDATE_LOCATION,
-} from 'constant/actions';
+} from '@/constant/actions';
 import { LocationStateType } from './types';
-import { defaultValues } from '../constant';
+import { defaultValues } from '@/constant';
 
 const initialState: LocationStateType = {
   location: '',

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { useTypedSelector } from 'hooks';
-import { changeWeatherApi, fetchWeather } from 'actions';
-import { weatherStateSelector } from 'selectors';
-import { apiNames, text, defaultValues, classNames } from 'constant';
+import { useTypedSelector } from '@/hooks';
+import { changeWeatherApi, fetchWeather } from '@/actions';
+import { weatherStateSelector } from '@/selectors';
+import { apiNames, text, defaultValues, classNames } from '@/constant';
 
 import {
   SelectorButton,
@@ -12,7 +12,7 @@ import {
   SelectorList,
   SelectorListItem,
   SelectorText,
-} from './styles';
+} from './styled';
 
 const ApiSelector: React.FC = () => {
   const dispatch = useDispatch();

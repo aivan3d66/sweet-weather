@@ -1,6 +1,6 @@
-import UserCalendar from 'components/UserCalendar';
 import React from 'react';
 
+import UserCalendar from '@/components/UserCalendar';
 import MainContent from './DateAndLocation';
 import { MainContainer } from './styles';
 

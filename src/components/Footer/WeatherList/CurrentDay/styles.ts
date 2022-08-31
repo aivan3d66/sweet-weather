@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import theme from '../../../../theme';
+
+import theme from '@/theme';
 
 export const CurrentDayContainer = styled.div`
   margin: auto ${theme.margins.m4}px;

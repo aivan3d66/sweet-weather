@@ -1,10 +1,10 @@
-import { CurrentWeatherDataType } from 'components/Footer/WeatherList/WeatherListItem/types';
-import { apiNames } from 'constant';
+import { CurrentWeatherDataType } from '@/components/Footer/WeatherList/WeatherListItem/types';
+import { apiNames } from '@/constant';
 import {
   OpenWeatherApiDataTypeDaily,
   SubTotalWeatherDataType,
   WeatherBitApiDataTypeDaily,
-} from 'saga/workers/types';
+} from '@/saga/workers/types';
 
 import { getDate } from './dateUtils';
 

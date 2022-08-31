@@ -1,5 +1,5 @@
-import { CurrentWeatherDataType } from 'components/Footer/WeatherList/WeatherListItem/types';
-import { ITodosList } from '../components/UserCalendar/types';
+import { CurrentWeatherDataType } from '@/components/Footer/WeatherList/WeatherListItem/types';
+import { ITodosList } from '@/components/UserCalendar/types';
 
 export interface LocationStateType {
   location: string;

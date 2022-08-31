@@ -1,4 +1,4 @@
-import { UPDATE_LOCAL_STORAGE } from 'constant/actions';
+import { UPDATE_LOCAL_STORAGE } from '@/constant/actions';
 
 export const updateLocalStorage = (item: string, data: string) =>
   ({

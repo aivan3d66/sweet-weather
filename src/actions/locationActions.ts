@@ -5,8 +5,8 @@ import {
   UPDATE_COORDINATES,
   UPDATE_COUNTRY_CODE,
   UPDATE_LOCATION,
-} from 'constant/actions';
-import { CoordinatesType } from 'saga/workers/types';
+} from '@/constant/actions';
+import { CoordinatesType } from '@/saga/workers/types';
 
 export const fetchLocation = () =>
   ({

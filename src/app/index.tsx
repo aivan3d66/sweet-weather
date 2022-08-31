@@ -1,27 +1,24 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { useTypedSelector } from 'hooks';
-
-import Footer from 'components/Footer';
-import Main from 'components/Main';
-
 import {
-  fetchLocationError,
-  updateCoordinates,
-  fetchLocation,
-  updateLocationName,
-  updateCountyCode,
-  fetchWeatherSuccess,
   changeWeatherApi,
-} from 'actions';
-import { weatherDataSelector } from 'selectors';
-import { getBackgroundUrlAndColor } from 'utils';
-import { defaultValues, localStorageItems } from 'constant';
-
-import GlobalStyle from 'globalStyle';
-import { AppContainer, AppWrapper } from 'app/styled';
-import { ErrorBoundary } from '../components/ErrorBoundary';
+  fetchLocation,
+  fetchLocationError,
+  fetchWeatherSuccess,
+  updateCoordinates,
+  updateCountyCode,
+  updateLocationName,
+} from '@/actions';
+import { defaultValues, localStorageItems } from '@/constant';
+import { useTypedSelector } from '@/hooks';
+import { weatherDataSelector } from '@/selectors';
+import { getBackgroundUrlAndColor } from '@/utils';
+import Main from '@/components/Main';
+import Footer from '@/components/Footer';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import GlobalStyle from '@/globalStyle';
+import { AppContainer, AppWrapper } from './styles';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();

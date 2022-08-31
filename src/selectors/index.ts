@@ -1,9 +1,10 @@
+import { CombinedState } from 'redux';
+
 import {
   CalendarStateType,
   LocationStateType,
   WeatherStateType,
-} from 'reducers/types';
-import { CombinedState } from 'redux';
+} from '@/reducers/types';
 
 interface GlobalState {
   weatherState: WeatherStateType;

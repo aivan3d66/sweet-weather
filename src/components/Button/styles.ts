@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import theme from 'theme';
+
+import theme from '@/theme';
 
 export const ButtonContainer = styled.button`
   padding: ${theme.paddings.p1}px;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { getCurrentDate } from 'utils';
+
+import { getCurrentDate } from '@/utils';
 
 import { ClockContainer, ClockPeriod, ClockTime } from './style';
 

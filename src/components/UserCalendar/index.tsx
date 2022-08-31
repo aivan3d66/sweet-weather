@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ApiCalendar from 'react-google-calendar-api';
 
-import { config } from 'constant/calendar';
+import { config } from '@/constant/calendar';
 import {
   UserCalendarContainer,
   UserCalendarControllers,
@@ -10,10 +10,10 @@ import {
   UserCalendarListItem,
   UserCalendarTitle,
 } from './styles';
-import { getIsAuth } from '../../actions';
-import { useTypedSelector } from '../../hooks';
-import { calendarStateSelector } from '../../selectors';
-import { localStorageItems } from '../../constant';
+import { getIsAuth } from '@/actions';
+import { useTypedSelector } from '@/hooks';
+import { calendarStateSelector } from '@/selectors';
+import { localStorageItems } from '@/constant';
 import Button from '../Button';
 import { IResult, ITodosList } from './types';
 
