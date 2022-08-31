@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ApiCalendar from 'react-google-calendar-api';
 
@@ -16,6 +16,7 @@ import { calendarStateSelector } from '@/selectors';
 import { localStorageItems } from '@/constant';
 import Button from '../Button';
 import { IResult, ITodosList } from './types';
+import { getEndDate, getFullDate, getStartDate } from '@/utils';
 
 const apiCalendar = new ApiCalendar(config);
 
@@ -48,6 +49,19 @@ const UserCalendar = () => {
           );
         });
   };
+
+  const viewTodos = useMemo(() => {
+    return todos!.map(({ id, start: { date, dateTime }, end, summary }) => {
+      const startDate = date ? getFullDate(date) : getStartDate(dateTime);
+      const endDate = end.dateTime ? getEndDate(end.dateTime) : '';
+      return (
+        <UserCalendarListItem key={id}>
+          {startDate} {endDate} : {summary}
+        </UserCalendarListItem>
+      );
+    });
+  }, [todos]);
+
   return (
     <UserCalendarContainer>
       <UserCalendarTitle>Google Calendar</UserCalendarTitle>
@@ -59,17 +73,7 @@ const UserCalendar = () => {
           disabled={!isAuth}
         />
       </UserCalendarControllers>
-      <UserCalendarList>
-        {todos.length > 0 &&
-          todos.map(({ id, start, summary }) => {
-            const getDate = new Date(start.dateTime).toUTCString();
-            return (
-              <UserCalendarListItem key={id}>
-                {getDate} - {summary}
-              </UserCalendarListItem>
-            );
-          })}
-      </UserCalendarList>
+      <UserCalendarList>{viewTodos}</UserCalendarList>
     </UserCalendarContainer>
   );
 };

@@ -16,7 +16,8 @@ export interface ITodosList {
     self: boolean;
   };
   end: {
-    date: string;
+    dateTime: string;
+    date?: string;
   };
   etag: string;
   eventType: string;
@@ -35,6 +36,7 @@ export interface ITodosList {
   sequence: number;
   start: {
     dateTime: string;
+    date?: string;
   };
   status: string;
   summary: string;
