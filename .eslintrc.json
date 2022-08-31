@@ -3,17 +3,34 @@
     "browser": true,
     "jest": true
   },
-  "plugins": ["import"],
-  "extends": ["airbnb", "airbnb-typescript", "plugin:prettier/recommended"],
-  "parserOptions": { "project": "./tsconfig.json", "sourceType": "module" },
+  "plugins": [
+    "import"
+  ],
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "sourceType": "module"
+  },
   "rules": {
     "import/extensions": 0,
     "import/prefer-default-export": "off",
     "react/function-component-definition": [
       2,
-      { "namedComponents": "arrow-function" }
+      {
+        "namedComponents": "arrow-function"
+      }
     ],
-    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true
+      }
+    ],
     "@typescript-eslint/default-param-last": "off",
     "operator-linebreak": "off"
   }
