@@ -6,14 +6,11 @@ import Footer from '@/components/Footer';
 import { HomeContainer, HomeWrapper } from '@/pages/Home/styles';
 import { useTypedSelector } from '@/hooks';
 import { weatherDataSelector } from '@/selectors';
-import { getBackgroundUrlAndColor } from '@/utils';
+import { colorSchemeCreator } from '@/utils/colorSchemeCreator';
 
 const Home: React.FC = () => {
   const weatherData = useTypedSelector(weatherDataSelector);
-
-  const colourScheme = weatherData[0]
-    ? getBackgroundUrlAndColor(weatherData[0].code)
-    : getBackgroundUrlAndColor(800);
+  const colourScheme = colorSchemeCreator(weatherData);
 
   return (
     <HomeWrapper colourScheme={colourScheme}>
