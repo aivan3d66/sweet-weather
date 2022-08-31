@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useTypedSelector } from '@/hooks';
 import { changeWeatherApi, fetchWeather } from '@/actions';
 import { weatherStateSelector } from '@/selectors';
-import { apiNames, text, defaultValues, classNames } from '@/constant';
+import { apiNames, text } from '@/constant';
 
 import {
   SelectorButton,
@@ -38,17 +38,14 @@ const ApiSelector: React.FC = () => {
         <SelectorText>{nameAPI}</SelectorText>
         <SelectorText>{isOpen ? text.arrowTop : text.arrowBottom}</SelectorText>
       </SelectorButton>
-      <SelectorList
-        className={
-          isOpen ? defaultValues.emptyString : classNames.hideSelectMode
-        }
-      >
-        <SelectorListItem onClick={changeMode}>
-          {apiNames.openWeather}
-        </SelectorListItem>
-        <SelectorListItem onClick={changeMode}>
-          {apiNames.weatherbit}
-        </SelectorListItem>
+      <SelectorList isOpen={isOpen}>
+        {apiNames.selector.map((item) => {
+          return (
+            <SelectorListItem key={useId()} onClick={changeMode}>
+              {item}
+            </SelectorListItem>
+          );
+        })}
       </SelectorList>
     </SelectorContainer>
   );

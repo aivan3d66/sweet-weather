@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 import theme from '@/theme';
 
+type SelectorListPropsType = {
+  isOpen: boolean;
+};
+
 export const SelectorContainer = styled.div`
   width: ${theme.width.sm}px;
   margin: ${theme.margins.m1}px auto ${theme.margins.m4}px auto;
@@ -26,16 +30,12 @@ export const SelectorText = styled.span`
   text-transform: uppercase;
 `;
 
-export const SelectorList = styled.div`
+export const SelectorList = styled.div<SelectorListPropsType>`
   position: absolute;
-  display: flex;
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   flex-direction: column;
   width: ${theme.width.sm}px;
   list-style: none;
-
-  &.hide_select_mode {
-    display: none;
-  }
 `;
 
 export const SelectorListItem = styled.button`
@@ -44,6 +44,7 @@ export const SelectorListItem = styled.button`
   padding: ${theme.paddings.p1}px;
   text-align: start;
   border: none;
+  transition: 0.3s;
 
   &:hover {
     opacity: 0.9;
