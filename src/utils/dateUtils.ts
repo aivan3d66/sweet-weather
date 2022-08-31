@@ -7,3 +7,27 @@ export const getCurrentDate = (value: Date) => {
   const year = value.getFullYear();
   return `${day}/${month}/${year}`;
 };
+
+export const getFullDate = (value: string) => {
+  return new Date(value)
+    .toString()
+    .split('')
+    .reverse()
+    .slice(46)
+    .reverse()
+    .join('');
+};
+
+export const getStartDate = (value: string) => {
+  return new Date(value)
+    .toString()
+    .split('')
+    .reverse()
+    .slice(40)
+    .reverse()
+    .join('');
+};
+
+export const getEndDate = (value: string) => {
+  return ` - ${getStartDate(value)}`;
+};
